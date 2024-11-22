@@ -43826,6 +43826,7 @@ async function PostToFeishu(id, content) {
             }
         };
         core.info(`options: ${JSON.stringify(options)}`);
+        core.info(`content: ${content}`);
         const req = https.request(options, res => {
             const statusCode = res.statusCode;
             res.on('data', d => {
