@@ -22,7 +22,7 @@ export async function PostGithubEvent(): Promise<number | undefined> {
   const signKey = core.getInput('signkey')
     ? core.getInput('signkey')
     : process.env.FEISHU_BOT_SIGNKEY || ''
-    
+
   core.info('开始执行 GitHub Action')
   core.debug('这是调试级别的日志')
   core.warning('这是警告信息')
@@ -41,6 +41,7 @@ export async function PostGithubEvent(): Promise<number | undefined> {
 
   const webhookId = webhook.slice(webhook.indexOf('hook/') + 5)
   const tm = Math.floor(Date.now() / 1000)
+  core.info(`tm: ${tm}`)
   const sign = sign_with_timestamp(tm, signKey)
 
   const actor = context.actor
