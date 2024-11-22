@@ -23,7 +23,7 @@ export async function PostToFeishu(
       }
     }
 
-    core.info('options', options);
+    core.info(`options: ${JSON.stringify(options)}`);
 
     const req = https.request(options, res => {
       const statusCode = res.statusCode
