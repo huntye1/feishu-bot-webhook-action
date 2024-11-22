@@ -22,6 +22,9 @@ export async function PostToFeishu(
         'Content-Type': 'application/json'
       }
     }
+
+    console.log('options', options);
+    
     const req = https.request(options, res => {
       const statusCode = res.statusCode
       res.on('data', d => {
