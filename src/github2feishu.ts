@@ -18,9 +18,12 @@ export async function PostGithubEvent(): Promise<number | undefined> {
   const webhook = core.getInput('webhook')
     ? core.getInput('webhook')
     : process.env.FEISHU_BOT_WEBHOOK || ''
+    console.log('webhook', webhook)
   const signKey = core.getInput('signkey')
     ? core.getInput('signkey')
     : process.env.FEISHU_BOT_SIGNKEY || ''
+
+    console.log('signKey', signKey)
 
   const payload = context.payload || {}
   console.log(payload)
