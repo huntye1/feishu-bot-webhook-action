@@ -23,8 +23,8 @@ export async function PostToFeishu(
       }
     }
 
-    console.log('options', options);
-    
+    core.info('options', options);
+
     const req = https.request(options, res => {
       const statusCode = res.statusCode
       res.on('data', d => {

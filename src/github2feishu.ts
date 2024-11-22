@@ -22,9 +22,19 @@ export async function PostGithubEvent(): Promise<number | undefined> {
   const signKey = core.getInput('signkey')
     ? core.getInput('signkey')
     : process.env.FEISHU_BOT_SIGNKEY || ''
+    
+  core.info('开始执行 GitHub Action')
+  core.debug('这是调试级别的日志')
+  core.warning('这是警告信息')
+  core.error('这是错误信息')
+  core.notice('这是通知信息')
+  core.setOutput('log-level', 'info')
 
-  console.log('webhook', webhook)
-  console.log('signKey', signKey)
+  // 也可以使用 group 来对日志进行分组
+  core.startGroup('配置信息')
+  core.info(`Webhook: ${webhook}`)
+  core.info(`SignKey: ${signKey}`) 
+  core.endGroup()
 
   const payload = context.payload || {}
   console.log(payload)
