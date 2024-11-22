@@ -43920,6 +43920,7 @@ async function PostGithubEvent() {
     console.log(payload);
     const webhookId = webhook.slice(webhook.indexOf('hook/') + 5);
     const tm = Math.floor(Date.now() / 1000);
+    core.info(`tm: ${tm}`);
     const sign = (0, feishu_1.sign_with_timestamp)(tm, signKey);
     const actor = github_1.context.actor;
     const eventType = github_1.context.eventName;
